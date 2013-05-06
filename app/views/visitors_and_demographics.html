@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="span12">
+    <h1>Event Volume</h1>
+    <div class="controls">
+      <label><input type="radio" /> Last 30 days</label>
+      <label><input type="radio" /> Last 7 days</label>
+      <label><input type="radio" /> Specific Date</label>
+    </div>
+    <div id="eventVolumeChart"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="span6">test</div>
+  <div class="span6">
+    <h1>Visitors &amp; Demographics</h1>
+    <h2>Top States</h2>
+    <table class="table">
+      <thead>
+      <th>States</th>
+      <th>Percentage</th>
+      </thead>
+      <tbody ng-repeat="state in states">
+      <tr>
+        <td>{{state.name}}</td>
+        <td>{{state.percentage}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

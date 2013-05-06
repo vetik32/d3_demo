@@ -4,7 +4,7 @@ angular.module('d3DemoApp', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/visitors_and_demographics.html',
         controller: 'MainCtrl'
       })
       .otherwise({

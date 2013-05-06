@@ -11,6 +11,37 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="styles/main.css">
+    <style type="text/css" media="all">
+      .axis {
+        font-family: arial;
+        font-size: 0.6em;
+      }
+      path {
+        fill: none;
+        stroke: black;
+        stroke-width: 2px;
+      }
+      .tick {
+        fill: none;
+        stroke: black;
+      }
+      circle {
+        stroke: black;
+        stroke-width: 0.5px;
+      }
+      circle.times_square {
+        fill: DeepPink;
+      }
+      circle.grand_central {
+        fill: MediumSeaGreen;
+      }
+      path.times_square {
+        stroke: DeepPink
+      }
+      path.grand_central {
+        stroke: MediumSeaGreen;
+      }
+    </style>
   </head>
   <body ng-app="d3DemoApp">
     <!--[if lt IE 7]>
@@ -29,6 +60,7 @@
     <script src="components/angular-resource/angular-resource.js"></script>
     <script src="components/angular-cookies/angular-cookies.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="components/d3/d3.js"></script>
 
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
@@ -36,11 +68,11 @@
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
+    <!-- script>
       var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
+    </script -->
   </body>
 </html>
