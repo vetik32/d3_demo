@@ -26,12 +26,12 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
   ];
 
 
-  function drawLineGraphs(data) {
+  function drawLineGraphs(data, selector) {
     var margin = 40;
     var width = 700 - margin;
     var height = 300 - margin;
 
-    d3.select("#eventVolumeChart")
+    d3.select(selector)
         .append("svg")
         .attr("width", width + margin)
         .attr("height", height + margin)
@@ -130,6 +130,90 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
         .attr("y", margin / 1.5)
   }
 
-  d3.json("data/turnstile_traffic.json", drawLineGraphs);
+  d3.json("data/turnstile_traffic.json", function(data){ drawLineGraphs(data, "#eventVolumeChart");});
 
+
+
+  function drawPieGraph(selector) {
+    var width = 300,
+        height = 300,
+        radius = Math.min(width, height) / 2;
+
+    var color = d3.scale.ordinal()
+        .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+    var arc = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(radius - 100);
+
+    var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.impression; });
+
+
+    d3.json("data/pie_data.json", function(error, data) {
+      var svg = d3.select(selector).append("svg")
+          .attr("width", width)
+          .attr("height", height)
+          .append("g")
+          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+      data.forEach(function(d) {
+        d.impression = +d.impression;
+      });
+
+      var g = svg.selectAll(".arc")
+          .data(pie(data))
+          .enter().append("g")
+          .attr("class", "arc");
+
+      g.append("path")
+          .attr("d", arc)
+          .style("fill", function(d) { return color(d.data.advertiser); });
+
+      var legend = d3.select(selector).append("svg")
+          .attr("class", "legend")
+          .attr("width", 200)
+          .attr("height", 200)
+          .selectAll("g")
+          .data(
+              color.domain().slice()
+          )
+          .enter().append("g")
+          .attr("transform", function(d, i) {
+            return "translate(0," + i * 20 + ")";
+          });
+
+      legend.append("rect")
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+      legend.append("text")
+          .attr("x", 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .text(function(d) { return "Advertiser " + d; });
+    });
+
+// Stash the old values for transition.
+    function stash(d) {
+      d.x0 = d.x;
+      d.dx0 = d.dx;
+    }
+
+// Interpolate the arcs in data space.
+    function arcTween(a) {
+      var i = d3.interpolate({x: a.x0, dx: a.dx0}, a);
+      return function(t) {
+        var b = i(t);
+        a.x0 = b.x;
+        a.dx0 = b.dx;
+        return arc(b);
+      };
+    }
+
+    d3.select(self.frameElement).style("height", height + "px");
+  }
+  drawPieGraph("#advertiserPieChart");
 });
