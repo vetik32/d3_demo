@@ -1,0 +1,25 @@
+@import "compass_twitter_bootstrap/mixins";
+@import "sojern_vars";
+
+.table {
+  thead {
+    @include ctb-gradient-vertical($tableHeaderHighlight, $tableHeaderBackground);
+    color: white;
+  }
+}
+
+.section-header {
+  color: $sectionHeaderColor;
+}
+
+.sub-section-header {
+  color: $subSectionHeaderColor;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .divider-right {
+    border-left: 1px solid #aaa;
+    margin-left: 19px;
+  }
+}

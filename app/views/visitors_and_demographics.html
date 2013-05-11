@@ -1,19 +1,38 @@
 <div class="row">
   <div class="span12">
-    <h1>Event Volume</h1>
-    <div class="controls">
-      <label><input type="radio" /> Last 30 days</label>
-      <label><input type="radio" /> Last 7 days</label>
-      <label><input type="radio" /> Specific Date</label>
-    </div>
-    <div id="eventVolumeChart"></div>
+    <h3 class="text-center">Event Volume</h3>
   </div>
 </div>
 <div class="row">
-  <div class="span6">test</div>
+  <div class="span3">&nbsp;</div>
   <div class="span6">
-    <h1>Visitors &amp; Demographics</h1>
-    <h2>Top States</h2>
+    <div class="controls">
+      <ul class="inline">
+        <li><label class="radio"><input type="radio" name="dateRange"/> Last 30 days</label></li>
+        <li><label class="radio"><input type="radio" name="dateRange"/> Last 7 days</label></li>
+        <li><label class="radio"><input type="radio" name="dateRange"/> Specific Date</label></li>
+      </ul>
+    </div>
+  </div>
+  <div class="span3">
+    <select>
+      <option>Line Graphs</option>
+      <option>Bar Graphs</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div id="eventVolumeChart" class="span12"></div>
+</div>
+<div class="row">
+  <div class="span6">
+    <h4 class="section-header">Advertiser Performance</h4>
+    <h5 class="sub-section-header"><i class="icon-arrow-right"></i>Attributable Impression</h5>
+  </div>
+  <div class="span6 divider-right">
+    <div class="span5">
+    <h4 class="section-header">Visitors &amp; Demographics</h4>
+    <h5 class="sub-section-header">Top States</h5>
     <table class="table">
       <thead>
       <th>States</th>
@@ -26,5 +45,6 @@
       </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </div>

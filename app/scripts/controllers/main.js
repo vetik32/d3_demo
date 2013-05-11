@@ -26,7 +26,7 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
   ];
 
 
-  function draw(data) {
+  function drawLineGraphs(data) {
     var margin = 40;
     var width = 700 - margin;
     var height = 300 - margin;
@@ -130,6 +130,6 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
         .attr("y", margin / 1.5)
   }
 
-  d3.json("data/turnstile_traffic.json", draw);
+  d3.json("data/turnstile_traffic.json", drawLineGraphs);
 
 });
