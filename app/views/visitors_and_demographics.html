@@ -1,6 +1,6 @@
 <div class="row">
   <div class="span12">
-    <h3 class="text-center">Event Volume</h3>
+    <h3 class="text-center section-header">Event Volume</h3>
   </div>
 </div>
 <div class="row">
@@ -27,7 +27,7 @@
 <div class="row">
   <div class="span6">
     <h4 class="section-header">Advertiser Performance</h4>
-    <h5 class="sub-section-header"><i class="icon-arrow-right"></i>Attributable Impression</h5>
+    <h5 class="sub-section-header">Attributable Impression</h5>
     <div id="advertiserPieChart" class="span6"></div>
   </div>
   <div class="span6 divider-right">
@@ -39,8 +39,8 @@
       <th>States</th>
       <th>Percentage</th>
       </thead>
-      <tbody ng-repeat="state in states">
-      <tr>
+      <tbody>
+      <tr ng-repeat="state in states" ng-class-odd="'odd'">
         <td>{{state.name}}</td>
         <td>{{state.percentage}}</td>
       </tr>

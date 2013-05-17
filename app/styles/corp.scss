@@ -1,5 +1,11 @@
 @import "compass_twitter_bootstrap/mixins";
-@import "sojern_vars";
+@import "corp_vars";
+
+@import "grid";
+
+body {
+  font-family: "ff-meta-web-pro","Helvetica","Arial", "sans-serif";
+}
 
 .table {
   thead {
@@ -22,4 +28,10 @@
     border-left: 1px solid #aaa;
     margin-left: 19px;
   }
+}
+
+.legendWrap {
+  text-transform: uppercase;
+  font-family: Arial;
+  font-size: 12px;
 }
