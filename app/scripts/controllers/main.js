@@ -187,22 +187,6 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
           .ticks(5)
     }
 
-    /*
-     canvas.append("g")
-     .attr("class", "grid")
-     .attr("transform", "translate(0," + height + ")")
-     .call(make_x_axis()
-     .tickSize(-height, 0, 0)
-     .tickFormat("")
-     )
-
-     anvas.append("g")
-     .attr("class", "grid")
-     .call(make_y_axis()
-     .tickSize(-width, -width, 0)
-     .tickFormat("")
-     )
-     */
     drawGrid(canvas, {
       'selector': selector,
       'width': width,
@@ -354,7 +338,8 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
           .attr('transform', 'translate(5,10)')
           .attr('r', 5)
           .style('fill', function (d) {
-            return color(d.impression);
+            console.log(d);
+            return color(d.value);
           });
 
       legend.append('text')
