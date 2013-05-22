@@ -2,6 +2,11 @@
 @import "corp_vars";
 
 @import "grid";
+@import "login";
+
+html, body, .appContainer {
+  height: 100%;
+}
 
 body {
   font-family: "ff-meta-web-pro","Helvetica","Arial", "sans-serif";

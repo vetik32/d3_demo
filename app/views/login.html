@@ -1,0 +1,26 @@
+<div class="loginBackground container-fluid ">
+  <div id="welcome" ng-controller="LoginCtrl" class="pagination-centered" style="color: white">
+    <h3>Client Log in</h3>
+    <form ng-submit="auth()">
+      <table>
+      <tr>
+        <td>
+        <label>Email Address</label>
+        <input class="input login username" type="text" placeholder="username"/>
+      </td>
+      </tr>
+      <tr>
+        <td>
+        <label>Password</label>
+        <input class="input login password" type="password" placeholder="password"/>
+        </td>
+      </tr>
+      <tr><td>
+        <input class="input login submit" type="submit" value="Log In"/>
+      </td></tr>
+      </table>
+    </form>
+
+    <a href="#">Forgot password</a>
+  </div>
+</div>

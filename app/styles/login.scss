@@ -1,0 +1,4 @@
+.loginBackground {
+  @include ctb-gradient-radial($loginRadialBgInnerColor, $loginRadialBgOuterColor);
+  height: 100%;
+}
