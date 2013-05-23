@@ -1,26 +1,24 @@
-<div class="loginBackground container-fluid ">
-  <div id="welcome" ng-controller="LoginCtrl" class="pagination-centered" style="color: white">
-    <h3>Client Log in</h3>
-    <form ng-submit="auth()">
-      <table>
-      <tr>
-        <td>
-        <label>Email Address</label>
-        <input class="input login username" type="text" placeholder="username"/>
-      </td>
-      </tr>
-      <tr>
-        <td>
-        <label>Password</label>
-        <input class="input login password" type="password" placeholder="password"/>
-        </td>
-      </tr>
-      <tr><td>
-        <input class="input login submit" type="submit" value="Log In"/>
-      </td></tr>
-      </table>
-    </form>
-
-    <a href="#">Forgot password</a>
+<div class="loginBackground" ng-controller="LoginCtrl">
+  <div class="block">
+    <div class="centered">
+      <div class="logo"></div>
+      <h3>Sojern Client Log in</h3>
+      <hr/>
+      <form ng-submit="auth()">
+        <span ng-click="switchMode()">change mode(click me)</span>
+        <div>
+          <label>Email Address</label>
+          <input class="input login username" type="text" placeholder="email"/>
+        </div>
+        <div>
+          <label>Password</label>
+          <input class="input login password" type="password" placeholder="password"/>
+        </div>
+        <div>
+          <input class="margin-t-2 login submit" type="submit" value="Log In"/>
+        </div>
+        <a href="#">Forgot password</a>
+      </form>
+    </div>
   </div>
 </div>

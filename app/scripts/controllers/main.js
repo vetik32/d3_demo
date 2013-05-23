@@ -33,7 +33,7 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
   /*
    * {selector,width,height}
    */
-  function addCanvas(options, data) {
+  function addCanvas(options) {
 
     var margin = options.margin,
         width = options.width,
@@ -49,10 +49,9 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
     return canvas;
   }
 
-  function drawGrid(canvas, options, data) {
+  function drawGrid(canvas, options) {
 
-    var margin = options.margin,
-        width = options.width,
+    var width = options.width,
         height = options.height;
 
     var yScale = d3.scale.linear().domain([0, 3000000]).range([height, 0]).nice();
@@ -123,13 +122,8 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
     return rules;
   }
 
-  function drawBarGraphs(data, selector) {
-
-  }
-
   function getConcatinatedData(data) {
-    var flatData = _.flatten(data);
-    return flatData;
+    return _.flatten(data);
   }
 
   function drawLineGraphs(data, selector) {
@@ -159,11 +153,11 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
     /* scales applied to data */
     function xData(e) {
       return xScale(timeAccessor(e));
-    };
+    }
 
     function yData(e) {
       return yScale(countAccessor(e));
-    };
+    }
 
     var canvas = addCanvas({
       'selector': selector,
@@ -173,19 +167,19 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
     });
 
 
-    function make_x_axis() {
+/*    function make_x_axis() {
       return d3.svg.axis()
           .scale(xScale)
-          .orient("bottom")
+          .orient('bottom')
           .ticks(5)
     }
 
     function make_y_axis() {
       return d3.svg.axis()
           .scale(yScale)
-          .orient("left")
+          .orient('left')
           .ticks(5)
-    }
+    }*/
 
     drawGrid(canvas, {
       'selector': selector,
@@ -204,10 +198,10 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
 
     var lineFunction = d3.svg.line()
         .x(function (e) {
-          return xData(e)
+          return xData(e);
         })
         .y(function (e) {
-          return yData(e)
+          return yData(e);
         });
 
     var index = 0;
@@ -218,16 +212,16 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
     _.each(data, function (partOfData, key) {
       index += 1;
       var group = dataGroup.append('g')
-          .attr("class", key);
+          .attr('class', key);
 
       group
           .append('path')
           .attr('d', lineFunction(partOfData))
-          .attr("stroke", color(index))
-          .attr("stroke-width", 2)
-          .attr("fill", "none");
+          .attr('stroke', color(index))
+          .attr('stroke-width', 2)
+          .attr('fill', 'none');
 
-      var itemLegendGroup = legendWrap.append("g");
+      var itemLegendGroup = legendWrap.append('g');
 
       itemLegendGroup.append('rect')
           .attr('width', 10)
@@ -249,7 +243,7 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
 
     var legendItemPadding = 35;
 
-    series.attr('transform', function (d, i) {
+    series.attr('transform', function (/*d, i*/) {
       var length = d3.select(this).select('text').node().getComputedTextLength() + legendItemPadding;
       xpos = newxpos;
 
@@ -259,7 +253,9 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
       }
 
       newxpos += length;
-      if (newxpos > maxwidth) maxwidth = newxpos;
+      if (newxpos > maxwidth) {
+        maxwidth = newxpos;
+      }
 
       return 'translate(' + xpos + ',' + ypos + ')';
     });
@@ -291,7 +287,7 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
 
     var pie = d3.layout.pie().value(valueAccessor);
 
-    d3.json('data/pie_data.json', function (error, data) {
+    d3.json('data/pie_data.json', function (/*error, data*/) {
       var svg = d3.select(selector).append('svg')
           .attr('width', width + margin.left + margin.right)
           .attr('height', height + margin.top + margin.bottom);
@@ -301,9 +297,9 @@ angular.module('d3DemoApp').controller('MainCtrl', function ($scope) {
 
       var randomData = _.map(d3.range(7).map(Math.random).sort(d3.descending), function (n, index) {
         return {
-          key: 'Advertizer ' + String.fromCharCode(65 + +index),
-          value: parseInt(n * 500000)
-        }
+          key: 'Advertizer ' + String.fromCharCode(65 + index),
+          value: parseInt(n * 500000, 10)
+        };
       });
 
       var minMaxImpressionDomain = d3.extent(randomData, valueAccessor);
