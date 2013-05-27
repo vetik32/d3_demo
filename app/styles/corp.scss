@@ -1,4 +1,4 @@
-@import "compass_twitter_bootstrap/mixins";
+@import "../components/sass-bootstrap/lib/mixins";
 @import "corp_vars";
 
 @import "grid";
@@ -15,7 +15,7 @@ body {
 
 .table {
   thead {
-    @include ctb-gradient-vertical($tableHeaderHighlight, $tableHeaderBackground);
+    @include gradient-vertical($tableHeaderHighlight, $tableHeaderBackground);
     color: white;
   }
 }

@@ -16,7 +16,11 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should contains states object', function () {
+    expect(typeof scope.states).toBe('object');
+  });
+
+  it('states object length should be 5', function () {
+    expect(scope.states.length).toBe(5);
   });
 });

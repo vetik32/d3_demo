@@ -1,5 +1,9 @@
-
 $formWidth: 240px;
+$loginRadialBgInnerColor: #fa8646;
+$loginRadialBgOuterColor: #da4d00;
+
+$loginButtonStartColor: #e8671f;
+$loginButtonEndColor: $loginRadialBgOuterColor;
 
 .logo {
   width: 94px;
@@ -10,7 +14,7 @@ $formWidth: 240px;
 }
 
 .loginBackground {
-  @include ctb-gradient-radial($loginRadialBgInnerColor, $loginRadialBgOuterColor);
+  @include gradient-radial($loginRadialBgInnerColor, $loginRadialBgOuterColor);
   height: 100%;
 }
 
@@ -38,16 +42,16 @@ $formWidth: 240px;
     .login {
       &.input {
         width: 228px;
-        @include ctb-border-radius(0);
+        @include border-radius(0);
         border: none;
-        @include ctb-box-shadow(inset 0 2px 2px #913503);
+        @include box-shadow(inset 0 2px 2px #913503);
       }
     }
 
     .submit {
       width: $formWidth;
-      @include ctb-gradient-vertical($loginButtonStartColor, $loginButtonEndColor);
-      @include ctb-box-shadow(0 0 10px rgba(255,255,255,.5));
+      @include gradient-vertical($loginButtonStartColor, $loginButtonEndColor);
+      @include box-shadow(0 0 10px rgba(255,255,255,.5));
       border: 1px solid #c14602;
       height: 44px;
       font-size: 2rem;
