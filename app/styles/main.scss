@@ -1,9 +1,12 @@
 @import "variables";
 @import "../components/sass-bootstrap/lib/_mixins";
 
+@import "layout";
 @import "grid";
 @import "utils";
 @import "login";
+@import "navbar";
+@import "responsive";
 
 html, body, .appContainer {
   height: 100%;
@@ -27,13 +30,6 @@ body {
 .sub-section-header {
   color: $subSectionHeaderColor;
   text-transform: uppercase;
-}
-
-@media (min-width: 768px) {
-  .divider-right {
-    border-left: 1px solid #aaa;
-    margin-left: 19px;
-  }
 }
 
 .legendWrap {

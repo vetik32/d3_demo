@@ -3,6 +3,6 @@
 angular.module('d3DemoApp')
     .controller('LoginCtrl', function ($scope, $routeParams, $location) {
       $scope.auth = function () {
-        $location.url('/chart');
+        $location.url('/home');
       };
     });

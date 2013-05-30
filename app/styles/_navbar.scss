@@ -1,0 +1,79 @@
+$navItemMargin : 42px;
+$activeItemColor: #ed6e31;
+$welcomeColor: #00b0ed;
+
+.welcome {
+  color: $welcomeColor;
+}
+
+.headerLogo {
+  display: inline-block;
+  position: relative;
+  margin-right: 75px;
+  padding-left: 45px;
+}
+
+.logo {
+
+  &.gray {
+    width: 40px;
+    height: 40px;
+    background-position: 0 -90px;
+    top: 0;
+    left: 0;
+    position: absolute
+  }
+}
+
+.logo-title {
+  color: $activeItemColor;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+}
+
+.logo-moto {
+  color: gray;
+  font-size: .8rem;
+}
+
+
+.navbar {
+  text-align: center;
+
+  .navbar-inner {
+    padding: 0;
+    border: none;
+  }
+
+  .nav {
+    margin: .6rem 0 0 0;
+    display: inline-block;
+    float: none;
+
+    li {
+
+      a {
+        font-weight: bold;
+        text-align: center;
+        padding-right: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+        margin-right: $navItemMargin;
+        text-transform: uppercase;
+
+        &.active {
+          color: $activeItemColor;
+        }
+      }
+    }
+
+    //li:first-child,
+    li:last-child {
+
+      a {
+        padding-right: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}

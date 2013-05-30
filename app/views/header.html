@@ -1,0 +1,25 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <div class="text-right">
+        <span class="margin-r-3 welcome">Hi, {{user.name}}</span>
+        <span ng-click="logout()">Log Out</span>
+      </div>
+      <div class="row">
+        <div class="span1"></div>
+        <div class="span10">
+          <div class="headerLogo">
+            <div class="logo gray pull-left"></div>
+            <span class="logo-title">SOJERN</span>
+            <div class="logo-moto text-right">Engage Travelers</div>
+          </div>
+          <ul class="nav">
+            <li ng-repeat="item in navigation"><a href="#{{item.url}}"
+                ng-class="getMenuItemClass(item)">{{item.display}}</a></li>
+          </ul>
+        </div>
+        <div class="span1"></div>
+      </div>
+    </div>
+  </div>
+</div>
