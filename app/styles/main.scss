@@ -1,1 +1,43 @@
-@import "corp";
+@import "variables";
+@import "../components/sass-bootstrap/lib/_mixins";
+
+@import "grid";
+@import "utils";
+@import "login";
+
+html, body, .appContainer {
+  height: 100%;
+}
+
+body {
+  font-family: "ff-meta-web-pro","Helvetica","Arial", "sans-serif";
+}
+
+.table {
+  thead {
+    @include gradient-vertical($tableHeaderHighlight, $tableHeaderBackground);
+    color: white;
+  }
+}
+
+.section-header {
+  color: $sectionHeaderColor;
+}
+
+.sub-section-header {
+  color: $subSectionHeaderColor;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .divider-right {
+    border-left: 1px solid #aaa;
+    margin-left: 19px;
+  }
+}
+
+.legendWrap {
+  text-transform: uppercase;
+  font-family: Arial;
+  font-size: 12px;
+}
