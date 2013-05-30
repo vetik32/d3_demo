@@ -4,7 +4,7 @@ angular.module('d3DemoApp')
     .controller('UserCtrl',['$scope', '$location', function ($scope, $location) {
       $scope.user = {
         name: 'John Smith'
-      }
+      };
 
       $scope.navigation = [
         {

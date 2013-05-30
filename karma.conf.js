@@ -10,6 +10,7 @@ files = [
   'app/components/angular/angular.js',
   'app/components/angular-mocks/angular-mocks.js',
   'app/components/d3/d3.js',
+  'app/components/jquery/jquery.js',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
   //'test/mock/**/*.js',
