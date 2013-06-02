@@ -6,7 +6,9 @@
 @import "utils";
 @import "login";
 @import "navbar";
+@import "footer";
 @import "responsive";
+@import "debug";
 
 html, body, .appContainer {
   height: 100%;
@@ -37,3 +39,46 @@ body {
   font-family: Arial;
   font-size: 12px;
 }
+
+.headerRow {
+  background-color: $subSectionHeaderColor;
+  color: white;
+}
+
+
+// horizontal list
+
+.list.horizontal {
+
+  list-style: none;
+  width: 100%;
+  text-align: center;
+
+  & > li {
+    display: table-cell;
+    width: 1%;
+    float: none;
+
+    .title {
+      color: $subSectionHeaderColor;
+      font-size: 0.8rem;
+    }
+
+    .num {
+      color: $dataHeader;
+      font-size: 2rem;
+    }
+  }
+}
+
+
+.dataSection {
+  border-top: 2px  solid #5facec;
+  background-color: #f9f9f9;
+}
+
+.divider-right {
+  border-right: 1px solid $c6_color;
+  margin-right: -1px;
+}
+

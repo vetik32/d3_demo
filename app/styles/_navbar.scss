@@ -6,12 +6,12 @@ $welcomeColor: #00b0ed;
   color: $welcomeColor;
 }
 
-.headerLogo {
+.logoPalceholder {
   display: inline-block;
   position: relative;
   margin-right: 75px;
   padding-left: 45px;
-}
+
 
 .logo {
 
@@ -35,14 +35,15 @@ $welcomeColor: #00b0ed;
   color: gray;
   font-size: .8rem;
 }
-
+}
 
 .navbar {
-  text-align: center;
-
   .navbar-inner {
-    padding: 0;
     border: none;
+    margin-bottom: 20px;
+    background: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
   }
 
   .nav {

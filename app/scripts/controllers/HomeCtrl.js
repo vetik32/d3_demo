@@ -25,6 +25,31 @@ angular.module('d3DemoApp').controller('HomeCtrl', function ($scope) {
     }
   ];
 
+  $scope.listOfItem = [
+    {
+      'name': 'Event Volume',
+      'value': '123456789'
+    },
+    {
+      'name': 'Event Volume',
+      'value': '123456'
+    },
+    {
+      'name': 'Event Volume',
+      'value': '123456'
+    },
+    {
+      'name': 'Event Volume',
+      'value': '123456'
+    },
+    {
+      'name': 'Event Volume',
+      'value': '123456'
+    }
+  ];
+
+
+
 
   var WEEK_DAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
