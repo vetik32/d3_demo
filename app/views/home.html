@@ -6,7 +6,8 @@
     </div>
     <div class="span1"></div>
   </div>
-  <div class="row how-grid margin-t-2">
+  <div class="row margin-t-2">
+  <div class="row client-data">
     <div class="span1"></div>
     <div class="span10">
       <div class="row margin-b-2">
@@ -17,30 +18,35 @@
           </li>
         </ul>
       </div>
-      <section class="dataSection">
-        <h2 class="text-center section-header margin-t-2">Event Volume</h2>
+     </div>
+    <div class="span1"></div>
+
+  </div>
+  <div class="row">
+    <hr class="line-blue"/>
+  </div>
+  <div class="row how-grid">
+    <div class="span1"></div>
+    <div class="span10">
+      <section class="dataSection" ng-controller="ReportsCtrl">
+        <h2 class="text-center section-header">Event Volume</h2>
         <div class="row">
           <div class="span2">&nbsp;</div>
-          <div class="span5">
+          <div class="span6">
             <div class="controls">
               <ul class="inline">
-                <li><label class="radio"><input type="radio" name="dateRange"/> Last 30 days</label></li>
-                <li><label class="radio"><input type="radio" name="dateRange"/> Last 7 days</label></li>
-                <li><label class="radio"><input type="radio" name="dateRange"/> Specific Date</label></li>
+                <li ng-repeat="item in dates"><label class="radio"><input type="radio" ng-model="rangeDate" value="{{item.value}}" name="dateRange"/> {{item.label}}</label></li>
               </ul>
             </div>
           </div>
-          <div class="span3">
-            <select>
-              <option>Line Graphs</option>
-              <option>Bar Graphs</option>
-            </select>
+          <div class="span2">
+            <select ng-model="type" ng-options="key as value for (key,value) in graphTypes" class="graphType"></select>
+            <label class="checkbox inline" ng-show="type == 'bar'"><input type="checkbox" ng-model="grouped" /> Grouped</label>
           </div>
         </div>
         <div class="row">
-          <div id="eventVolumeChart" class="span10"></div>
+          <div id="eventVolumeChart" class="span10" gh-visualization val="eventVolume" type="type" grouped="grouped"></div>
         </div>
-
       </section>
       <section class="margin-t-4">
       <div class="row">

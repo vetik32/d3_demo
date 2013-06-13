@@ -6,20 +6,28 @@
     border-top: 1px solid $c6_color;
   }
 
-  .list {
-    margin-left: 0;
+  .inline {
+    display: inline-block;
+    margin: 0;
 
     li {
+      margin: 0;
       text-align: left;
+      padding: 0 60px 0 0;
+
+      &:last-child {
+        padding-right: 0;
+      }
     }
 
     a {
       color: #636363;
-      font-size: 1.2rem;
+      font-size: 0.8rem;
+      font-weight: bold;
     }
   }
 
   .copyright {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
 }

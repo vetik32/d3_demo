@@ -43,6 +43,9 @@ body {
 .headerRow {
   background-color: $subSectionHeaderColor;
   color: white;
+  h3 {
+    margin: 0;
+  }
 }
 
 
@@ -53,27 +56,40 @@ body {
   list-style: none;
   width: 100%;
   text-align: center;
+  margin: 0;
 
   & > li {
     display: table-cell;
     width: 1%;
     float: none;
-
-    .title {
-      color: $subSectionHeaderColor;
-      font-size: 0.8rem;
-    }
-
-    .num {
-      color: $dataHeader;
-      font-size: 2rem;
-    }
   }
 }
 
+.client-data {
+  .list {
+    & > li {
+      border-left: 1px solid #c0bebf;
+      line-height: 30px;
+
+      &:first-child {
+        border: none;
+      }
+
+      .title {
+        color: $dataHeader;
+        font-size: 1rem;
+      }
+
+      .num {
+        color: $subSectionHeaderColor;
+        font-size: 2rem;
+      }
+    }
+  }
+
+}
 
 .dataSection {
-  border-top: 2px  solid #5facec;
   background-color: #f9f9f9;
 }
 
@@ -82,3 +98,17 @@ body {
   margin-right: -1px;
 }
 
+.line-blue {
+  height: 2px;
+  background-color: #5facec;
+  border: none;
+  margin-left: 30px
+}
+
+.greeting-area {
+  line-height: 35px;
+}
+
+.graphType {
+  width: 10rem;
+}

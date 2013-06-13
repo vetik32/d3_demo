@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('d3DemoApp', [])
+angular.module('d3DemoApp', ['ReportsServices'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
