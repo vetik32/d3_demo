@@ -14,7 +14,7 @@
         <ul class="list horizontal">
           <li ng-repeat="item in listOfItem" class="dataItem">
             <div class="title">{{item.name}}</div>
-            <div class="num">{{item.value}}</div>
+            <div class="num">{{item.value | number}}</div>
           </li>
         </ul>
       </div>

@@ -91,6 +91,16 @@ body {
 
 .dataSection {
   background-color: #f9f9f9;
+
+  .controls {
+    text-align: center;
+
+    .inline {
+      display: inline-block;
+      margin-top: 0.3rem;
+    }
+
+  }
 }
 
 .divider-right {
