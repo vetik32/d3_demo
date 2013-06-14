@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('d3DemoApp')
-    .controller('ReportsCtrl', function ($scope, Reports) {
+    .controller('ReportsCtrl', function ($scope, Reports, LocalReports) {
 
       $scope.dates = [
         {
@@ -28,9 +28,18 @@ angular.module('d3DemoApp')
       $scope.type = 'liniar';
       $scope.grouped = true;
 
-      Reports.get({reportType: 'line_data'}, function (report) {
+      LocalReports.get({reportType: 'line_data'}, function (report) {
         $scope.eventVolume = report;
       });
 
-    })
-;
+      LocalReports.get({reportType: 'service_class_by_partner'}, function (response) {
+        $scope.pieData = response.results;
+      });
+
+      Reports.query(function (response) {
+        console.log(response);
+        $scope.pieData = response.results;
+      });
+
+
+    });
