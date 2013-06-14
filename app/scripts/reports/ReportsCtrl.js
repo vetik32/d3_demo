@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('d3DemoApp')
-    .controller('ReportsCtrl', function ($scope, EventVolumeReport) {
+    .controller('ReportsCtrl', function ($scope, Reports) {
 
       $scope.dates = [
         {
@@ -28,8 +28,8 @@ angular.module('d3DemoApp')
       $scope.type = 'liniar';
       $scope.grouped = true;
 
-      EventVolumeReport.query(function (response) {
-        $scope.eventVolume = response;
+      Reports.get({reportType: 'line_data'}, function (report) {
+        $scope.eventVolume = report;
       });
 
     })
