@@ -26,11 +26,11 @@ body {
 }
 
 .section-header {
-  color: $sectionHeaderColor;
+  color: $blueColor;
 }
 
 .sub-section-header {
-  color: $subSectionHeaderColor;
+  color: $orangeColor;
   text-transform: uppercase;
 }
 
@@ -41,7 +41,7 @@ body {
 }
 
 .headerRow {
-  background-color: $subSectionHeaderColor;
+  background-color: $orangeColor;
   color: white;
   h3 {
     margin: 0;
@@ -76,12 +76,12 @@ body {
       }
 
       .title {
-        color: $dataHeader;
+        color: $blueColor;
         font-size: 1rem;
       }
 
       .num {
-        color: $subSectionHeaderColor;
+        color: $orangeColor;
         font-size: 2rem;
       }
     }
@@ -110,7 +110,7 @@ body {
 
 .line-blue {
   height: 2px;
-  background-color: #5facec;
+  background-color: $blueColor;
   border: none;
   margin-left: 30px
 }
