@@ -20,4 +20,3 @@ angular.module('ReportsServices', ['ngResource'])
         }
       });
     }]);
-

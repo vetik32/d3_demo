@@ -1,5 +1,5 @@
 $navItemMargin : 42px;
-$activeItemColor: #ed6e31;
+$generalOrange: #f37321;
 $welcomeColor: #00b0ed;
 
 .welcome {
@@ -26,7 +26,7 @@ $welcomeColor: #00b0ed;
 }
 
 .logo-title {
-  color: $activeItemColor;
+  color: $generalOrange;
   font-size: 2.5rem;
   line-height: 2.5rem;
 }
@@ -63,7 +63,7 @@ $welcomeColor: #00b0ed;
         text-transform: uppercase;
 
         &.active {
-          color: $activeItemColor;
+          color: $generalOrange;
         }
       }
     }
