@@ -358,8 +358,8 @@ angular.module('d3DemoApp')
               bars = drawBars(newVal, element[0]);
               barGraphDrawn = true;
             }
-            $(vis[0]).find('.data').hide()
-                .filter('.' + scope.type).show();
+            $(vis[0]).find('.data').css('display','none')
+                .filter('.' + scope.type).css('display','');
           });
 
           // setup a watch on 'grouped' to switch between views

@@ -58,7 +58,12 @@ angular.module('d3DemoApp')
 
               var minMaxImpressionDomain = d3.extent(newVal, valueAccessor);
 
-              var color = d3.scale.linear().domain(minMaxImpressionDomain).range(['#ade1f9', '#005ba0']);
+              //var color = d3.scale.linear().domain(minMaxImpressionDomain).range(['#ade1f9', '#005ba0']);
+              var color = function (x) {
+                var range = ['#005ba0','#007abf','#00b0ed','#75d1f5','#ade1f9'];
+                return range[(x - 1) % range.length];
+              };
+
               var numFormmater = d3.format(',');
 
               var g = arcs.selectAll('.arc')
@@ -66,10 +71,12 @@ angular.module('d3DemoApp')
                   .enter().append('g')
                   .attr('class', 'arc');
 
+              var colorIndex = 0;
               g.append('path')
                   .attr('d', arc)
                   .style('fill', function (d) {
-                    return color(labelAccessor(d));
+                    return color(++colorIndex);
+                    //return color(labelAccessor(d));
                   });
 
               var legend = svg.append('g')
@@ -84,11 +91,13 @@ angular.module('d3DemoApp')
                     return 'translate(0,' + i * 40 + ')';
                   });
 
+              colorIndex = 0;
               legend.append('circle')
                   .attr('transform', 'translate(5,10)')
                   .attr('r', 5)
                   .style('fill', function (d) {
-                    return color(valueAccessor(d));
+                    return color(++colorIndex);
+                    //return color(valueAccessor(d));
                   });
 
               legend.append('text')
