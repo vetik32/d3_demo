@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="span2">
-            <select ng-model="type" ng-options="key as value for (key,value) in graphTypes" class="graphType"></select>
+            <select ng-model="type" ng-options="key as value for (key,value) in graphTypes" class="graphType" ng-change="switchChartType()"></select>
             <label class="checkbox inline" ng-show="type == 'bar'"><input type="checkbox" ng-model="grouped" /> Grouped</label>
           </div>
         </div>

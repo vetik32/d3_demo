@@ -52,10 +52,6 @@ angular.module('d3DemoApp').controller('HomeCtrl', function ($scope) {
     }
   ];
 
-  function drawPieGraph(selector) {
-  }
-
-  drawPieGraph('#advertiserPieChart');
 });
 
 

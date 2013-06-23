@@ -26,7 +26,13 @@ angular.module('d3DemoApp')
       };
 
       $scope.type = 'liniar';
-      $scope.grouped = true;
+      $scope.grouped = false;
+
+      $scope.switchChartType = function(value){
+        if ($scope.type === 'liniar') {
+          $scope.grouped = false;
+        }
+      }
 
       LocalReports.get({reportType: 'line_data'}, function (report) {
         $scope.eventVolume = report;
@@ -37,7 +43,6 @@ angular.module('d3DemoApp')
       });
 
       Reports.query(function (response) {
-        console.log(response);
         $scope.pieData = response.results;
       });
 
