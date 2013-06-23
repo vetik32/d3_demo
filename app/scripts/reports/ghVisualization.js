@@ -43,18 +43,14 @@ angular.module('d3DemoApp')
         }
 
         var color = d3.scale.linear().range(['#f37321','#dc540a','#b44001','#883001','#5a2202']);
-
         var canvas = addCanvas(element[0]);
-
-
         var barGraphDrawn = false;
 
-        var interval = function(flattenData, fieldAccessorFn) {
+        var minMaxInterval = function(flattenData, fieldAccessorFn) {
           return d3.extent(flattenData, fieldAccessorFn);
         };
 
         scope.$watch('val', function (newVal, oldVal) {
-
 
           // if 'val' is undefined, exit
           if (!newVal) {
@@ -64,7 +60,6 @@ angular.module('d3DemoApp')
           // clear the elements inside of the directive
           canvas.selectAll('*').remove();
 
-          var bars = null;
           var stack = d3.layout.stack(),
               layers = stack(["cruise", "hotel", "flight","car","vacation"].map(function(item) {
                 return newVal[item].map(function(d) {
@@ -76,7 +71,7 @@ angular.module('d3DemoApp')
 
           var yAxisMaxValue = scope.grouped ? yStackMax : yGroupMax;
 
-          var timeDomain = interval(getConcatinatedData(newVal), timeAccessor);
+          var timeDomain = minMaxInterval(getConcatinatedData(newVal), timeAccessor);
 
           var timeScaleOffset = 70;
           var xScale = d3.time.scale().domain(timeDomain).range([timeScaleOffset, width - timeScaleOffset]);
@@ -99,7 +94,6 @@ angular.module('d3DemoApp')
           function updateYDomain(newDomain){
             yScale.domain(newDomain).nice();
           }
-
 
           function drawGrid() {
 
@@ -150,9 +144,7 @@ angular.module('d3DemoApp')
                 return yData(e);
               });
 
-          var lines;
-
-          function drawLineGraphs(data) {
+          function drawLineGraphs() {
             var dataGroup = canvas
                 .append('g').classed('data liniar', true);
 
@@ -162,7 +154,7 @@ angular.module('d3DemoApp')
                 .attr('class', 'legendWrap')
                 .attr('transform', 'translate(' + 0 + ',' + (height + margin.bottom / 2) + ')');
 
-            _.each(data, function (partOfData, key) {
+            _.each(newVal, function (partOfData, key) {
               index += 1;
               var group = dataGroup.append('g');
 
@@ -217,7 +209,7 @@ angular.module('d3DemoApp')
 
             return {
               updateToNewScale: function () {
-                _.each(data, function (partOfData, key) {
+                _.each(newVal, function (partOfData, key) {
                   var group = dataGroup.select('.' + key);
                   group.transition().attr('d', lineFunction(partOfData))
                 });
@@ -263,6 +255,8 @@ angular.module('d3DemoApp')
                   return height - yScale(d.y);
                 });
 
+            barGraphDrawn = true;
+
             return {
               transitionGrouped: function () {
                 updateYDomain([0, yGroupMax]);
@@ -306,9 +300,13 @@ angular.module('d3DemoApp')
                     .attr("width", xRangeBand);
               }
             }
+
+
           }
 
           var grid = drawGrid();
+          var lines = drawLineGraphs();
+          var bars = drawBars();
 
           function updateCanvasElements() {
             canvas.select(".labels.y_labels").transition().call(yAxis);
@@ -316,41 +314,30 @@ angular.module('d3DemoApp')
             grid.updataToNewScale();
           }
 
-          if (scope.type === 'liniar') {
-            lines = drawLineGraphs(newVal);
-          } else {
-            bars = drawBars();
-          }
-
-          scope.$watch('type', function () {
-            if (!barGraphDrawn) {
-              bars = drawBars();
-              barGraphDrawn = true;
-            }
+          var switchChartType = function () {
             $(canvas[0]).find('.data').css('display','none')
                 .filter('.' + scope.type).css('display','');
-          });
+          }
+
+          switchChartType();
+
+          scope.$watch('type', switchChartType);
 
           // setup a watch on 'grouped' to switch between views
-          scope.$watch('grouped', function (newVal, oldVal) {
-            if (newVal === oldVal) {
+          scope.$watch('grouped', function (grouped, oldVal) {
+            if (grouped === oldVal) {
               return;
             }
 
-            if (newVal) {
+            if (grouped) {
               bars.transitionStacked();
             } else {
               bars.transitionGrouped();
             }
 
             updateCanvasElements();
-
           });
-
         });
-
-
-
       }
     };
   });

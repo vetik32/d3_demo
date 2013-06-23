@@ -25,7 +25,7 @@ angular.module('d3DemoApp')
         'bar': 'Bar Graphs'
       };
 
-      $scope.type = 'liniar';
+      $scope.type = 'bar';
       $scope.grouped = false;
 
       $scope.switchChartType = function(value){
