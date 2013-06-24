@@ -1,1 +1,354 @@
-/* Will be compiled down to a single stylesheet with your sass files */
+.margin-t-1 {
+  margin-top: 10px; }
+
+.margin-r-1 {
+  margin-right: 10px; }
+
+.margin-b-1 {
+  margin-bottom: 10px; }
+
+.margin-l-1 {
+  margin-left: 10px; }
+
+.padding-t-1 {
+  padding-top: 10px; }
+
+.padding-r-1 {
+  padding-right: 10px; }
+
+.padding-b-1 {
+  padding-bottom: 10px; }
+
+.padding-l-1 {
+  padding-left: 10px; }
+
+.margin-t-2 {
+  margin-top: 20px; }
+
+.margin-r-2 {
+  margin-right: 20px; }
+
+.margin-b-2 {
+  margin-bottom: 20px; }
+
+.margin-l-2 {
+  margin-left: 20px; }
+
+.padding-t-2 {
+  padding-top: 20px; }
+
+.padding-r-2 {
+  padding-right: 20px; }
+
+.padding-b-2 {
+  padding-bottom: 20px; }
+
+.padding-l-2 {
+  padding-left: 20px; }
+
+.margin-t-3 {
+  margin-top: 30px; }
+
+.margin-r-3 {
+  margin-right: 30px; }
+
+.margin-b-3 {
+  margin-bottom: 30px; }
+
+.margin-l-3 {
+  margin-left: 30px; }
+
+.padding-t-3 {
+  padding-top: 30px; }
+
+.padding-r-3 {
+  padding-right: 30px; }
+
+.padding-b-3 {
+  padding-bottom: 30px; }
+
+.padding-l-3 {
+  padding-left: 30px; }
+
+.margin-t-4 {
+  margin-top: 40px; }
+
+.margin-r-4 {
+  margin-right: 40px; }
+
+.margin-b-4 {
+  margin-bottom: 40px; }
+
+.margin-l-4 {
+  margin-left: 40px; }
+
+.padding-t-4 {
+  padding-top: 40px; }
+
+.padding-r-4 {
+  padding-right: 40px; }
+
+.padding-b-4 {
+  padding-bottom: 40px; }
+
+.padding-l-4 {
+  padding-left: 40px; }
+
+.rules line, .rules path {
+  shape-rendering: crispEdges;
+  stroke: #ccc; }
+.rules .minor {
+  stroke-dasharray: 2 2; }
+.rules .domain {
+  fill: none; }
+
+.grid .tick {
+  stroke: #ccc;
+  stroke-width: 1px; }
+
+.labels .tick {
+  color: #ccc; }
+.labels .days {
+  font-size: 20px; }
+
+/* This parent can be any width and height */
+.block {
+  text-align: center;
+  height: 100%; }
+
+/* The ghost, nudged to maintain perfect centering */
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+  /* Adjusts for spacing */ }
+
+/* The element to be centered, can
+   also be of any width and height */
+.centered {
+  display: inline-block;
+  vertical-align: middle; }
+
+.logo {
+  width: 94px;
+  height: 90px;
+  background-image: url("images/logo.png");
+  border: none;
+  display: inline-block; }
+
+.loginBackground {
+  background-color: #da4d00;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#fa8646), to(#da4d00));
+  background-image: -webkit-radial-gradient(circle, #fa8646, #da4d00);
+  background-image: -moz-radial-gradient(circle, #fa8646, #da4d00);
+  background-image: -o-radial-gradient(circle, #fa8646, #da4d00);
+  background-repeat: no-repeat;
+  height: 100%; }
+
+.loginBackground {
+  color: white; }
+  .loginBackground hr {
+    height: 1px;
+    background-color: #d45109;
+    border: none; }
+  .loginBackground a {
+    color: white; }
+  .loginBackground form {
+    text-align: left;
+    width: 240px; }
+    .loginBackground form .margin-t-2 {
+      margin-top: 0.8rem; }
+    .loginBackground form .login.input {
+      width: 228px;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      border: none;
+      -webkit-box-shadow: inset 0 2px 2px #913503;
+      -moz-box-shadow: inset 0 2px 2px #913503;
+      box-shadow: inset 0 2px 2px #913503; }
+    .loginBackground form .submit {
+      width: 240px;
+      background-color: #e25c12;
+      background-image: -moz-linear-gradient(top, #e8671f, #da4d00);
+      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e8671f), to(#da4d00));
+      background-image: -webkit-linear-gradient(top, #e8671f, #da4d00);
+      background-image: -o-linear-gradient(top, #e8671f, #da4d00);
+      background-image: linear-gradient(to bottom, #e8671f, #da4d00);
+      background-repeat: repeat-x;
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFE8671F', endColorstr='#FFDA4D00', GradientType=0);
+      -webkit-box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      -moz-box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      border: 1px solid #c14602;
+      height: 44px;
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 1rem; }
+
+.welcome {
+  color: #00b0ed; }
+
+.logoPalceholder {
+  display: inline-block;
+  position: relative;
+  margin-right: 75px;
+  padding-left: 45px; }
+  .logoPalceholder .logo.gray {
+    width: 40px;
+    height: 40px;
+    background-position: 0 -90px;
+    top: 0;
+    left: 0;
+    position: absolute; }
+  .logoPalceholder .logo-title {
+    color: #f37321;
+    font-size: 2.5rem;
+    line-height: 2.5rem; }
+  .logoPalceholder .logo-moto {
+    color: gray;
+    font-size: .8rem; }
+
+.navbar .navbar-inner {
+  border: none;
+  margin-bottom: 20px;
+  background: none;
+  box-shadow: none;
+  -webkit-box-shadow: none; }
+.navbar .nav {
+  margin: 0 0 1rem 0;
+  display: inline-block;
+  float: none; }
+  .navbar .nav li a {
+    font-weight: bold;
+    text-align: center;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+    margin-right: 42px;
+    text-transform: uppercase; }
+    .navbar .nav li a.active {
+      color: #f37321; }
+  .navbar .nav li:last-child a {
+    padding-right: 0;
+    margin-right: 0; }
+
+.footer .span10 {
+  border-top: 1px solid #c6c6c6; }
+.footer .inline {
+  display: inline-block;
+  margin: 0; }
+  .footer .inline li {
+    margin: 0;
+    text-align: left;
+    padding: 0 60px 0 0; }
+    .footer .inline li:last-child {
+      padding-right: 0; }
+  .footer .inline a {
+    color: #636363;
+    font-size: 0.8rem;
+    font-weight: bold; }
+.footer .copyright {
+  font-size: 0.7rem; }
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .navbar {
+    text-align: left; }
+    .navbar .nav li a {
+      margin-right: 20px; }
+
+  .logoPalceholder {
+    margin-right: 30px; } }
+.show-grid [class*="span"] {
+  background-color: #eee; }
+
+.show-grid [class*="span"]:hover {
+  background-color: #ddd; }
+
+.show-grid [class*="span"] [class*="span"] {
+  background-color: #ccc; }
+
+.show-grid [class*="span"] [class*="span"] [class*="span"] {
+  background-color: #999; }
+
+html, body, .appContainer {
+  height: 100%; }
+
+body {
+  font-family: "ff-meta-web-pro","Helvetica","Arial", "sans-serif"; }
+
+.table thead {
+  background-color: #399cdf;
+  background-image: -moz-linear-gradient(top, #41b0ef, #2f80c8);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#41b0ef), to(#2f80c8));
+  background-image: -webkit-linear-gradient(top, #41b0ef, #2f80c8);
+  background-image: -o-linear-gradient(top, #41b0ef, #2f80c8);
+  background-image: linear-gradient(to bottom, #41b0ef, #2f80c8);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF41B0EF', endColorstr='#FF2F80C8', GradientType=0);
+  color: white; }
+
+.section-header {
+  color: #00b0ed; }
+
+.sub-section-header {
+  color: #f37321;
+  text-transform: uppercase; }
+
+.legendWrap {
+  text-transform: uppercase;
+  font-family: Arial;
+  font-size: 12px; }
+
+.headerRow {
+  background-color: #f37321;
+  color: white; }
+  .headerRow h3 {
+    margin: 0; }
+
+.list.horizontal {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+  margin: 0; }
+  .list.horizontal > li {
+    display: table-cell;
+    width: 1%;
+    float: none; }
+
+.client-data .list > li {
+  border-left: 1px solid #c0bebf;
+  line-height: 30px; }
+  .client-data .list > li:first-child {
+    border: none; }
+  .client-data .list > li .title {
+    color: #00b0ed;
+    font-size: 1rem; }
+  .client-data .list > li .num {
+    color: #f37321;
+    font-size: 2rem; }
+
+.dataSection {
+  background-color: #f9f9f9; }
+  .dataSection .controls {
+    text-align: center; }
+    .dataSection .controls .inline {
+      display: inline-block;
+      margin-top: 0.3rem; }
+
+.divider-right {
+  border-right: 1px solid #c6c6c6;
+  margin-right: -1px; }
+
+.line-blue {
+  height: 2px;
+  background-color: #00b0ed;
+  border: none; }
+
+.greeting-area {
+  line-height: 35px; }
+
+.graphType {
+  width: 10rem; }

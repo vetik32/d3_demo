@@ -61,7 +61,7 @@ angular.module('d3DemoApp')
           canvas.selectAll('*').remove();
 
           var stack = d3.layout.stack(),
-              layers = stack(["cruise", "hotel", "flight","car","vacation"].map(function(item) {
+              layers = stack(['cruise', 'hotel', 'flight','car','vacation'].map(function(item) {
                 return newVal[item].map(function(d) {
                   return { x: new Date(d.time), y: +d.count };
                 });
@@ -78,7 +78,7 @@ angular.module('d3DemoApp')
           var yScale = d3.scale.linear().domain([0,yAxisMaxValue]).range([height, 0]).nice();
 
 
-          var xAxis = d3.svg.axis().scale(xScale).ticks(5);  //TODO: set x axis ticks to 7/30/custom
+          var xAxis = d3.svg.axis().scale(xScale).ticks(layers[0].length);  //TODO: set x axis ticks to 7/30/custom
           var yAxis = d3.svg.axis().scale(yScale).orient('left');
           var gridForAxisY = d3.svg.axis().scale(yScale).orient('left');
 
@@ -110,7 +110,7 @@ angular.module('d3DemoApp')
                 .call(xAxis
                     .tickSize(0)
                     .tickPadding(30)
-                    .tickFormat(d3.time.format('%m/%d'))
+                    .tickFormat(d3.time.format('%x'))
                 );
 
             //add week day above x axe labels
@@ -228,30 +228,30 @@ angular.module('d3DemoApp')
             var dataGroup = canvas
                 .append('g').classed('data bar', true);
 
-            var layer = dataGroup.selectAll(".layer")
+            var layer = dataGroup.selectAll('.layer')
                 .data(layers)
-                .enter().append("g")
-                .attr("class", "layer")
-                .style("fill", function(d, i) {
+                .enter().append('g')
+                .attr('class', 'layer')
+                .style('fill', function(d, i) {
                   return color(i + 1);
                 });
 
-            var rect = layer.selectAll("rect")
+            var rect = layer.selectAll('rect')
                 .data(function(d) { return d; })
-                .enter().append("rect")
-                .attr("x", function (d, i, j) {
+                .enter().append('rect')
+                .attr('x', function (d, i, j) {
                   return xScale(d.x) - grouppedBarsOffset + xRangeBand / n * j;
                 })
-                .attr("y", height)
-                .attr("width", xRangeBand / n)
-                .attr("height", 0);
+                .attr('y', height)
+                .attr('width', xRangeBand / n)
+                .attr('height', 0);
 
             rect.transition()
                 .delay(function(d, i) { return i * 10; })
-                .attr("y", function (d) {
+                .attr('y', function (d) {
                   return yScale(d.y);
                 })
-                .attr("height", function (d) {
+                .attr('height', function (d) {
                   return height - yScale(d.y);
                 });
 
@@ -266,15 +266,15 @@ angular.module('d3DemoApp')
                     .delay(function (d, i) {
                       return i * 10;
                     })
-                    .attr("x", function (d, i, j) {
+                    .attr('x', function (d, i, j) {
                       return xScale(d.x) - grouppedBarsOffset + xRangeBand / n * j;
                     })
-                    .attr("width", xRangeBand / n)
+                    .attr('width', xRangeBand / n)
                     .transition()
-                    .attr("y", function (d) {
+                    .attr('y', function (d) {
                       return yScale(d.y);
                     })
-                    .attr("height", function (d) {
+                    .attr('height', function (d) {
                       return height - yScale(d.y);
                     });
               },
@@ -287,17 +287,17 @@ angular.module('d3DemoApp')
                     .delay(function (d, i) {
                       return i * 10;
                     })
-                    .attr("y", function (d) {
+                    .attr('y', function (d) {
                       return yScale(d.y0 + d.y);
                     })
-                    .attr("height", function (d) {
+                    .attr('height', function (d) {
                       return yScale(d.y0) - yScale(d.y0 + d.y);
                     })
                     .transition()
-                    .attr("x", function (d) {
+                    .attr('x', function (d) {
                       return xScale(d.x) - grouppedBarsOffset;
                     })
-                    .attr("width", xRangeBand);
+                    .attr('width', xRangeBand);
               }
             }
 
@@ -309,7 +309,7 @@ angular.module('d3DemoApp')
           var bars = drawBars();
 
           function updateCanvasElements() {
-            canvas.select(".labels.y_labels").transition().call(yAxis);
+            canvas.select('.labels.y_labels').transition().call(yAxis);
             lines.updateToNewScale();
             grid.updataToNewScale();
           }

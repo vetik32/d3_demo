@@ -33,7 +33,7 @@
           <div class="span6">
             <div class="controls">
               <ul class="inline">
-                <li ng-repeat="item in dates"><label class="radio"><input type="radio" ng-model="rangeDate" value="{{item.value}}" name="dateRange"/> {{item.label}}</label></li>
+                <li ng-repeat="range in dates"><label class="radio"><input type="radio" ng-model="$parent.dateRange" value="{{range.value}}" name="range"/> {{range.label}}</label></li>
               </ul>
             </div>
           </div>
