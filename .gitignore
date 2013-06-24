@@ -6,3 +6,4 @@ dist
 app/components
 libpeerconnection.log
 app/styles/main.css
+app/styles/_*.css
