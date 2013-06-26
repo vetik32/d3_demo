@@ -73,12 +73,14 @@ angular.module('d3DemoApp')
 
           var timeDomain = minMaxInterval(getConcatinatedData(newVal), timeAccessor);
 
-          var timeScaleOffset = 70;
+          var timeScaleOffset = 50;
           var xScale = d3.time.scale().domain(timeDomain).range([timeScaleOffset, width - timeScaleOffset]);
           var yScale = d3.scale.linear().domain([0,yAxisMaxValue]).range([height, 0]).nice();
 
 
-          var xAxis = d3.svg.axis().scale(xScale).ticks(layers[0].length);  //TODO: set x axis ticks to 7/30/custom
+          var barsCount = layers[0].length;
+          var tickCount = barsCount > 7 ? 7 : barsCount;
+          var xAxis = d3.svg.axis().scale(xScale).ticks(tickCount);  //TODO: set x axis ticks to 7/30/custom
           var yAxis = d3.svg.axis().scale(yScale).orient('left');
           var gridForAxisY = d3.svg.axis().scale(yScale).orient('left');
 
@@ -221,9 +223,8 @@ angular.module('d3DemoApp')
           function drawBars(){
 
             var n = layers.length;
-            var xRangeBand = 75;
+            var xRangeBand = Math.round(500 / layers[0].length);
             var grouppedBarsOffset = xRangeBand/2;
-
 
             var dataGroup = canvas
                 .append('g').classed('data bar', true);
@@ -240,24 +241,17 @@ angular.module('d3DemoApp')
                 .data(function(d) { return d; })
                 .enter().append('rect')
                 .attr('x', function (d, i, j) {
-                  return xScale(d.x) - grouppedBarsOffset + xRangeBand / n * j;
+                  return xScale(d.x) - grouppedBarsOffset;
+                  //return xScale(d.x) - grouppedBarsOffset + xRangeBand / n * j;
                 })
                 .attr('y', height)
                 .attr('width', xRangeBand / n)
                 .attr('height', 0);
 
-            rect.transition()
-                .delay(function(d, i) { return i * 10; })
-                .attr('y', function (d) {
-                  return yScale(d.y);
-                })
-                .attr('height', function (d) {
-                  return height - yScale(d.y);
-                });
 
             barGraphDrawn = true;
 
-            return {
+            var bars = {
               transitionGrouped: function () {
                 updateYDomain([0, yGroupMax]);
 
@@ -301,7 +295,8 @@ angular.module('d3DemoApp')
               }
             }
 
-
+            bars.transitionStacked();
+            return bars;
           }
 
           var grid = drawGrid();

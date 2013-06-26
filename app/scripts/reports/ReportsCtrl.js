@@ -6,10 +6,10 @@ angular.module('d3DemoApp')
       $scope.dates = [
         {
 
-          //'value': 30,
-          //'label': 'Last 30 days'
-          'value': 5,
-          'label': 'Last 5 days'
+          'value': 30,
+          'label': 'Last 30 days'
+          //'value': 5,
+          //'label': 'Last 5 days'
         },
         {
           'value': 7,
@@ -24,7 +24,7 @@ angular.module('d3DemoApp')
         }
       ];
 
-      $scope.dateRange = $scope.dates[1].value;
+      $scope.dateRange = $scope.dates[0].value;
 
       $scope.$watch('dateRange', function(numberOfDays, oldValue) {
         $scope.eventVolume = generateFakeData(numberOfDays);
@@ -37,7 +37,7 @@ angular.module('d3DemoApp')
       };
 
       $scope.type = 'bar';
-      $scope.grouped = false;
+      $scope.grouped = true;
 
       $scope.switchChartType = function(value){
         if ($scope.type === 'liniar') {

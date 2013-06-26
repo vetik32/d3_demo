@@ -23,23 +23,23 @@
   <div class="row">
     <hr class="line-blue"/>
   </div>
-  <div class="row how-grid" ng-controller="ReportsCtrl">
+  <div class="row" ng-controller="ReportsCtrl">
     <div class="span1"></div>
     <div class="span10">
       <section class="dataSection" >
         <h2 class="text-center section-header">Event Volume</h2>
         <div class="row">
           <div class="span2">&nbsp;</div>
-          <div class="span6">
+          <div class="span5">
             <div class="controls">
               <ul class="inline">
                 <li ng-repeat="range in dates"><label class="radio"><input type="radio" ng-model="$parent.dateRange" value="{{range.value}}" name="range"/> {{range.label}}</label></li>
               </ul>
             </div>
           </div>
-          <div class="span2">
-            <select ng-model="type" ng-options="key as value for (key,value) in graphTypes" class="graphType" ng-change="switchChartType()"></select>
-            <label class="checkbox inline" ng-show="type == 'bar'"><input type="checkbox" ng-model="grouped" /> Grouped</label>
+          <div class="span3">
+            <select ng-model="type" ng-options="key as value for (key,value) in graphTypes" class="graphType pull-right" ng-change="switchChartType()"></select>
+            <label class="checkbox inline pull-right margin-r-1" ng-show="type == 'bar'"><input type="checkbox" ng-model="grouped" /> Grouped</label>
           </div>
         </div>
         <div class="row">
