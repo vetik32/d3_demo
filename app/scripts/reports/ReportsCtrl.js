@@ -8,26 +8,29 @@ angular.module('d3DemoApp')
 
           'value': 30,
           'label': 'Last 30 days'
-          //'value': 5,
-          //'label': 'Last 5 days'
         },
         {
           'value': 7,
           'label': 'Last 7 days'
         },
         {
-
-          //'value': -1,
-          //'label': 'Specific Date'
-          'value': 1,
-          'label': 'Specific Date (1)'  //TODO: add datepicker
+          'value': '-1',
+          'label': 'Specific Date'
         }
       ];
 
+
       $scope.dateRange = $scope.dates[0].value;
+      $scope.from = null;
+      $scope.to = null;
 
       $scope.$watch('dateRange', function(numberOfDays, oldValue) {
-        $scope.eventVolume = generateFakeData(numberOfDays);
+        if (parseInt(numberOfDays, 10) === -1) {
+          $scope.eventVolume = generateFakeData(oldValue);
+        } else {
+          $scope.from = numberOfDays;
+          $scope.eventVolume = generateFakeData(numberOfDays);
+        }
       });
 
 
