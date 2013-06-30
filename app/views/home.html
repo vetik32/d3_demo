@@ -33,11 +33,16 @@
           <div class="span5">
             <div class="controls">
               <ul class="inline">
-                <li ng-repeat="range in dates"><label class="radio"><input type="radio" ng-model="$parent.dateRange" value="{{range.value}}" name="range"/> {{range.label}}</label></li>
+                <li><label class="radio"><input type="radio" ng-model="dateRange" value="30" name="range" />Last 30 days</label></li>
+                <li><label class="radio"><input type="radio" ng-model="dateRange" value="7" name="range" />7 days</label></li>
+                <li><label class="radio"><input type="radio" ng-model="dateRange" value="-1" name="range" />Specific Date</label></li>
               </ul>
-              <input ui-date type="text" ng-show="dateRange == -1" />
+<!--
+              <input popover-content="'scripts/reports/reportDatepicker.tpl.html'" popover-placement="bottom" popover-trigger="focus" />
+-->
+              <!--<input ui-date type="text" ng-show="dateRange == -1" />-->
             </div>
-            <div ng-show="dateRange == -1" class="text-center text-blue"><span am-time="from"></span> - <span am-time="to"></span></div>
+            <div ng-show="dateRange == -1" class="text-center text-orange"><span am-time="reportFilter.from"></span> - <span am-time="reportFilter.to"></span></div>
           </div>
           <div class="span3">
             <select ng-model="type" ng-options="key as value for (key,value) in graphTypes" class="graphType pull-right" ng-change="switchChartType()"></select>

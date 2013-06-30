@@ -13,7 +13,10 @@
     "angular-http-auth": "latest",
     "sass-bootstrap": "~2.3.2",
     "angular-ui-date": "~0.0.3",
-    "moment": "~2.0.0"
+    "moment": "~2.0.0",
+    "angular-ui": "~0.4.0",
+    "angular-bootstrap": "~0.4.0",
+    "angular-strap": "~0.7.4"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",

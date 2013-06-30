@@ -1,0 +1,15 @@
+<div class="row-fluid" ng-controller="DatepickerCtrl">
+
+  <div class="span6">
+    <input placeholder="From" ng-model="$parent.reportFilter.from" />
+    <div ui-date="dateOptionsFrom" name="DateOfBirth" ng-model="$parent.reportFilter.from"></div>
+  </div>
+
+  <div class="span6">
+    <input placeholder="To" ng-model="$parent.reportFilter.to" />
+    <div ui-date="dateOptionsTo" name="DateOfBirth" ng-model="$parent.reportFilter.to"></div>
+  </div>
+
+</div>
+
+<button class="btn brn-primary" ng-click="close()">Select</button>

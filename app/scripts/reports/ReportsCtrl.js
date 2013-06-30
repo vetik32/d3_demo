@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('d3DemoApp')
-    .controller('ReportsCtrl', function ($scope, Reports, LocalReports) {
+    .controller('ReportsCtrl', function ($scope, Reports, LocalReports, $dialog) {
 
       $scope.dates = [
         {
@@ -21,14 +21,36 @@ angular.module('d3DemoApp')
 
 
       $scope.dateRange = $scope.dates[0].value;
-      $scope.from = null;
-      $scope.to = null;
+      $scope.reportFilter = {
+        from : null,
+        to : null
+      };
+
+
+      $scope.opts = {
+        backdrop: false,
+        keyboard: true,
+        backdropClick: true,
+        templateUrl: 'scripts/reports/reportDatepicker.tpl.html',
+        controller: 'ReportDatepickerCtrl'
+      };
+
+      $scope.openDialog = function(){
+        var d = $dialog.dialog($scope.opts);
+        d.open().then(function(result){
+          if(result)
+          {
+            alert('dialog closed with result: ' + result);
+          }
+        });
+      };
 
       $scope.$watch('dateRange', function(numberOfDays, oldValue) {
         if (parseInt(numberOfDays, 10) === -1) {
           $scope.eventVolume = generateFakeData(oldValue);
+          $scope.openDialog();
         } else {
-          $scope.from = numberOfDays;
+          $scope.reportFilter.from = numberOfDays;
           $scope.eventVolume = generateFakeData(numberOfDays);
         }
       });
