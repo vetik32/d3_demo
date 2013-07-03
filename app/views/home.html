@@ -32,7 +32,7 @@
               <ul class="inline">
                 <li><label class="radio"><input type="radio" ng-model="dateRange" value="30" name="range" />Last 30 days</label></li>
                 <li><label class="radio"><input type="radio" ng-model="dateRange" value="7" name="range" />7 days</label></li>
-                <li><label class="radio"><input type="radio" ng-model="dateRange" value="-1" name="range" />Specific Date</label></li>
+                <li><label class="radio"><input type="radio" ng-model="dateRange" value="-1" name="range" ng-click="selectCustomRange()" />Specific Date</label></li>
               </ul>
 <!--
               <input popover-content="'scripts/reports/reportDatepicker.tpl.html'" popover-placement="bottom" popover-trigger="focus" />

@@ -1,4 +1,4 @@
-$navItemMargin : 42px;
+$navItemMargin: 42px;
 $orangeColor: #f37321;
 $blueColor: #00b0ed;
 
@@ -6,35 +6,34 @@ $blueColor: #00b0ed;
   color: $blueColor;
 }
 
-.logoPalceholder {
+.logoPlaceholder {
   display: inline-block;
   position: relative;
   margin-right: 75px;
   padding-left: 45px;
 
+  .logo {
 
-.logo {
-
-  &.gray {
-    width: 40px;
-    height: 40px;
-    background-position: 0 -90px;
-    top: 0;
-    left: 0;
-    position: absolute
+    &.gray {
+      width: 40px;
+      height: 40px;
+      background-position: 0 -90px;
+      top: 0;
+      left: 0;
+      position: absolute
+    }
   }
-}
 
-.logo-title {
-  color: $orangeColor;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-}
+  .logo-title {
+    color: $orangeColor;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
 
-.logo-moto {
-  color: gray;
-  font-size: .8rem;
-}
+  .logo-moto {
+    color: gray;
+    font-size: .8rem;
+  }
 }
 
 .navbar {

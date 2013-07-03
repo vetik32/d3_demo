@@ -5,7 +5,6 @@ angular.module('d3DemoApp')
 
       $scope.dates = [
         {
-
           'value': 30,
           'label': 'Last 30 days'
         },
@@ -35,21 +34,27 @@ angular.module('d3DemoApp')
         controller: 'ReportDatepickerCtrl'
       };
 
-      $scope.openDialog = function(){
+      $scope.openDialog = function(onCloseAction){
         var d = $dialog.dialog($scope.opts);
         d.open().then(function(result){
-          if(result)
-          {
-            alert('dialog closed with result: ' + result);
+          if (result && onCloseAction) {
+            onCloseAction();
           }
         });
       };
 
+      $scope.selectCustomRange = function () {
+        $scope.openDialog(function () {
+          $scope.eventVolume = generateFakeData(15);
+        });
+      };
+
       $scope.$watch('dateRange', function(numberOfDays, oldValue) {
-        if (parseInt(numberOfDays, 10) === -1) {
+        if (parseInt(numberOfDays, 10) !== -1) {
+/*
           $scope.eventVolume = generateFakeData(oldValue);
-          $scope.openDialog();
         } else {
+*/
           $scope.reportFilter.from = numberOfDays;
           $scope.eventVolume = generateFakeData(numberOfDays);
         }
@@ -71,7 +76,7 @@ angular.module('d3DemoApp')
       }
 
 
-
+      //TODO: datepicker - sets start/end dates, generateFakeData consider it and generates the date range right.
       function generateFakeData(numberOfDays) {
         var generatedData = {};
 
