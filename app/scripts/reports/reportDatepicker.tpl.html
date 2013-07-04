@@ -1,16 +1,16 @@
-<div class="row-fluid" ng-controller="DatepickerCtrl">
+<div class="row-fluid">
 
   <div class="span6">
-    <input placeholder="From" ng-model="$parent.reportFilter.from" />
-    <div ui-date="dateOptionsFrom" name="DateOfBirth" ng-model="$parent.reportFilter.from"></div>
+    <input placeholder="From" value="{{from | sjDate}}" type="text" disabled="disabled"/>
+    <div ui-date ng-model="from"></div>
   </div>
 
   <div class="span6">
-    <input placeholder="To" ng-model="$parent.reportFilter.to" />
-    <div ui-date="dateOptionsTo" name="DateOfBirth" ng-model="$parent.reportFilter.to"></div>
+    <input placeholder="To" value="{{to | sjDate}}" type="text" disabled="disabled"/>
+    <div ui-date ng-model="to"></div>
   </div>
 
-  <button class="btn brn-primary" ng-click="close('set')">Select</button>
+  <button class="btn brn-primary" ng-click="select(from, to)">Select</button>
 </div>
 
 

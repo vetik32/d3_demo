@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('d3DemoApp')
+angular.module('sjCharts', [])
     .directive('pieChart', function () {
       return {
         restrict: 'A',

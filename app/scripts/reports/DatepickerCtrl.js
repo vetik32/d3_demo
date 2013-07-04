@@ -1,5 +1,8 @@
-var DatepickerCtrl = function ($scope) {
-  $scope.dateOptionsFrom = {
-   dateFormat: "yy-mm-dd"
+var DatepickerCtrl = function ($scope, dialog) {
+  $scope.select = function (from, to) {
+    dialog.close({
+      from: from,
+      to: to
+    });
   };
 };

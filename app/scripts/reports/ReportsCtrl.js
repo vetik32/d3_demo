@@ -3,6 +3,11 @@
 angular.module('d3DemoApp')
     .controller('ReportsCtrl', function ($scope, Reports, LocalReports, $dialog) {
 
+      $scope.reportFilter = {
+        from : null,
+        to : null
+      };
+
       $scope.dates = [
         {
           'value': 30,
@@ -18,48 +23,48 @@ angular.module('d3DemoApp')
         }
       ];
 
-
-      $scope.dateRange = $scope.dates[0].value;
-      $scope.reportFilter = {
-        from : null,
-        to : null
-      };
-
-
       $scope.opts = {
         backdrop: false,
         keyboard: true,
         backdropClick: true,
         templateUrl: 'scripts/reports/reportDatepicker.tpl.html',
-        controller: 'ReportDatepickerCtrl'
+        controller: 'DatepickerCtrl'
       };
 
-      $scope.openDialog = function(onCloseAction){
+      $scope.openSelectDateRangeDialog = function(){
         var d = $dialog.dialog($scope.opts);
-        d.open().then(function(result){
-          if (result && onCloseAction) {
-            onCloseAction();
-          }
-        });
-      };
-
-      $scope.selectCustomRange = function () {
-        $scope.openDialog(function () {
-          $scope.eventVolume = generateFakeData(15);
+        d.open().then(function(range){
+          setDateRange(range, 1);
         });
       };
 
       $scope.$watch('dateRange', function(numberOfDays, oldValue) {
+
+        if (typeof numberOfDays === 'undefined') {
+          return;
+        }
+
         if (parseInt(numberOfDays, 10) !== -1) {
-/*
-          $scope.eventVolume = generateFakeData(oldValue);
-        } else {
-*/
-          $scope.reportFilter.from = numberOfDays;
-          $scope.eventVolume = generateFakeData(numberOfDays);
+          generateReportForNDays(numberOfDays);
         }
       });
 
+      var generateReportForNDays = function(numberOfDays){
+        if (numberOfDays !== -1) {
+          var to = moment().valueOf();
+          var from = moment().subtract('days', numberOfDays).valueOf();
+          setDateRange({from: from, to: to});
+        }
+      };
+
+      var setDateRange = function (range, addon) {
+        $scope.reportFilter.from = range.from;
+        $scope.reportFilter.to = range.to;
+        $scope.eventVolume = generateFakeData(addon);
+      };
+
+      // does selecting of default radio
+      $scope.dateRange = $scope.dates[0].value
 
       $scope.graphTypes = {
         'liniar': 'Line Graphs',
@@ -69,15 +74,21 @@ angular.module('d3DemoApp')
       $scope.type = 'bar';
       $scope.grouped = true;
 
-      $scope.switchChartType = function(value){
+      $scope.switchChartType = function(){
         if ($scope.type === 'liniar') {
           $scope.grouped = false;
         }
-      }
+      };
 
+      function generateFakeData(addon) {
+        var from = moment($scope.reportFilter.from);
+        var to = moment($scope.reportFilter.to);
+        var numberOfDays = to.diff(from, 'days') + (addon? addon : 0);
 
-      //TODO: datepicker - sets start/end dates, generateFakeData consider it and generates the date range right.
-      function generateFakeData(numberOfDays) {
+        if (numberOfDays > 190) {
+           numberOfDays = 183;
+        }
+
         var generatedData = {};
 
         ['cruise', 'hotel', 'flight','car','vacation'].map(function(item){
@@ -94,19 +105,17 @@ angular.module('d3DemoApp')
         return generatedData;
       }
 
+/*
       LocalReports.get({reportType: 'line_data'}, function (report) {
         $scope.eventVolume = generateFakeData($scope.dateRange);
       });
-
-
+*/
 
       LocalReports.get({reportType: 'service_class_by_partner'}, function (response) {
         $scope.pieData = response.results;
       });
 
-      Reports.query(function (response) {
-        $scope.pieData = response.results;
-      });
-
-
+      //Reports.query(function (response) {
+      //  $scope.pieData = response.results;
+      //});
     });

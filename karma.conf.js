@@ -12,6 +12,9 @@ files = [
   'app/components/angular-resource/angular-resource.js',
   'app/components/d3/d3.js',
   'app/components/jquery/jquery.js',
+  'app/components/angular-bootstrap/ui-bootstrap.js',
+  'app/components/angular-bootstrap/ui-bootstrap-tpls.js',
+  'app/components/angular-ui-date/src/date.js',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
   //'test/mock/**/*.js',
@@ -23,7 +26,7 @@ exclude = [];
 
 // test results reporter to use
 // possible values: dots || progress || growl
-reporters = ['progress'];
+reporters = ['dots'];
 
 // web server port
 port = 8080;
@@ -39,7 +42,7 @@ colors = true;
 logLevel = LOG_INFO;
 
 // enable / disable watching file and executing tests whenever any file changes
-autoWatch = false;
+autoWatch = true;
 
 // Start these browsers, currently available:
 // - Chrome

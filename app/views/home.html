@@ -20,7 +20,8 @@
      </div>
     <div class="span1"></div>
   </div>
-  <div class="row dataSection" ng-controller="ReportsCtrl">
+  <div ng-controller="ReportsCtrl">
+    <div class="row dataSection">
     <div class="span1"></div>
     <div class="span10">
       <section>
@@ -32,14 +33,10 @@
               <ul class="inline">
                 <li><label class="radio"><input type="radio" ng-model="dateRange" value="30" name="range" />Last 30 days</label></li>
                 <li><label class="radio"><input type="radio" ng-model="dateRange" value="7" name="range" />7 days</label></li>
-                <li><label class="radio"><input type="radio" ng-model="dateRange" value="-1" name="range" ng-click="selectCustomRange()" />Specific Date</label></li>
+                <li><label class="radio"><input type="radio" ng-model="dateRange" value="-1" name="range" ng-click="openSelectDateRangeDialog()" />Specific Date</label></li>
               </ul>
-<!--
-              <input popover-content="'scripts/reports/reportDatepicker.tpl.html'" popover-placement="bottom" popover-trigger="focus" />
--->
-              <!--<input ui-date type="text" ng-show="dateRange == -1" />-->
             </div>
-            <div ng-show="dateRange == -1" class="text-center text-orange"><span am-time="reportFilter.from"></span> - <span am-time="reportFilter.to"></span></div>
+            <div ng-show="dateRange == -1" class="text-center text-orange"><span>{{reportFilter.from | sjDate}}</span> - <span>{{reportFilter.to | sjDate}}</span></div>
           </div>
           <div class="span3">
             <select ng-model="type" ng-options="key as value for (key,value) in graphTypes" class="graphType pull-right" ng-change="switchChartType()"></select>
@@ -53,14 +50,14 @@
     </div>
     <div class="span1"></div>
    </div>
-   <div class="row" ng-controller="ReportsCtrl">
+   <div class="row">
     <div class="span10">
     <section class="margin-t-4">
       <div class="row">
         <div class="span5 divider-right">
           <h3 class="section-header">Advertiser Performance</h3>
           <h5 class="sub-section-header">Attributable Impression</h5>
-          <div id="advertiserPieChart" pie-chart val="pieData"></div>
+          <div pie-chart val="pieData"></div>
         </div>
         <div class="span5 ">
           <h3 class="section-header">Visitors &amp; Demographics</h3>
@@ -82,5 +79,6 @@
       </section>
     </div>
     <div class="span1"></div>
+  </div>
   </div>
 </div>

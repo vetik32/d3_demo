@@ -44,7 +44,6 @@ angular.module('d3DemoApp')
 
         var color = d3.scale.linear().range(['#f37321','#dc540a','#b44001','#883001','#5a2202']);
         var canvas = addCanvas(element[0]);
-        var barGraphDrawn = false;
 
         var minMaxInterval = function(flattenData, fieldAccessorFn) {
           return d3.extent(flattenData, fieldAccessorFn);
@@ -110,6 +109,7 @@ angular.module('d3DemoApp')
             var labels = canvas.append('svg:g').classed('labels x_labels', true)
                 .attr('transform', 'translate(0,' + height + ')')
                 .call(xAxis
+                    //.ticks(tickCount)
                     .tickSize(0)
                     .tickPadding(30)
                     .tickFormat(d3.time.format('%x'))
@@ -249,8 +249,6 @@ angular.module('d3DemoApp')
                 .attr('height', 0);
 
 
-            barGraphDrawn = true;
-
             var bars = {
               transitionGrouped: function () {
                 updateYDomain([0, yGroupMax]);
@@ -295,7 +293,6 @@ angular.module('d3DemoApp')
               }
             }
 
-            bars.transitionStacked();
             return bars;
           }
 
@@ -309,20 +306,14 @@ angular.module('d3DemoApp')
             grid.updataToNewScale();
           }
 
-          var switchChartType = function () {
-            $(canvas[0]).find('.data').css('display','none')
-                .filter('.' + scope.type).css('display','');
-          }
-
-          switchChartType();
-
-          scope.$watch('type', switchChartType);
+          scope.$watch('type', function(type, oldVal){
+            var $dataGroups = $(canvas[0][0]).find('.data');
+            $dataGroups.css('display','none');
+            $dataGroups.filter('.' + type).css('display', '');
+          });
 
           // setup a watch on 'grouped' to switch between views
           scope.$watch('grouped', function (grouped, oldVal) {
-            if (grouped === oldVal) {
-              return;
-            }
 
             if (grouped) {
               bars.transitionStacked();
