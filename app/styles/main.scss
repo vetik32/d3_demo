@@ -124,3 +124,35 @@ body {
 .text-orange {
   color: $orangeColor;
 }
+
+.modal {
+  width: auto;
+  border-width: 13px;
+  border-color: $blueColor;
+  padding: 15px 23px 27px 23px;
+
+  input {
+    color: $orangeColor;
+  }
+
+  .ui-widget-header,
+  .ui-state-default,
+  .ui-widget-content,
+  .ui-widget-content .ui-state-default,
+  .ui-widget-header .ui-state-default {
+    background: none;
+    border-color: white;
+    font-weight: normal;
+  }
+
+  .ui-widget-header {
+    color: #4067a6;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .inputs {
+    border-bottom: 2px solid #d3d3d3;
+    padding-bottom: 10px;
+  }
+}

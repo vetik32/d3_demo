@@ -34,7 +34,9 @@ angular.module('d3DemoApp')
       $scope.openSelectDateRangeDialog = function(){
         var d = $dialog.dialog($scope.opts);
         d.open().then(function(range){
-          setDateRange(range, 1);
+          if (range) {
+            setDateRange(range);
+          }
         });
       };
 

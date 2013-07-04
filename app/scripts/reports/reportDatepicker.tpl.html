@@ -1,16 +1,25 @@
-<div class="row-fluid">
+<div class="row-fluid inputs">
 
   <div class="span6">
-    <input placeholder="From" value="{{from | sjDate}}" type="text" disabled="disabled"/>
-    <div ui-date ng-model="from"></div>
+    <input placeholder="From" value="{{from | sjDate}}" type="text" class="span12"/>
   </div>
-
   <div class="span6">
-    <input placeholder="To" value="{{to | sjDate}}" type="text" disabled="disabled"/>
-    <div ui-date ng-model="to"></div>
+    <input placeholder="To" value="{{to | sjDate}}" type="text" class="span12"/>
   </div>
+</div>
 
-  <button class="btn brn-primary" ng-click="select(from, to)">Select</button>
+<div class="row-fluid margin-t-1">
+  <div class="span6">
+    <div ui-date="dateOptions" ng-model="from"></div>
+  </div>
+  <div class="span6">
+    <div ui-date="dateOptions" ng-model="to"></div>
+  </div>
+</div>
+
+<div class="row-fluid margin-t-1">
+  <button class="btn btn-primary" ng-click="select(from, to)" ng-disabled="rangeIsNotSelected()">Select</button>
+  <button class="btn margin-l-2" ng-click="cancel()">Cancel</button>
 </div>
 
 
