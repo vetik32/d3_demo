@@ -41,14 +41,6 @@ angular.module('d3DemoApp').controller('HomeCtrl', function ($scope) {
     {
       'name': 'Unique Cookie Volume',
       'value': '123456'
-    },
-    {
-      'name': 'Cookie Revenue eCPM',
-      'value': '123456'
-    },
-    {
-      'name': 'Event Revenue eCPM',
-      'value': '123456'
     }
   ];
 

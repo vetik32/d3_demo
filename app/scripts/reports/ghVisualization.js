@@ -307,9 +307,9 @@ angular.module('d3DemoApp')
           }
 
           scope.$watch('type', function(type, oldVal){
-            var $dataGroups = $(canvas[0][0]).find('.data');
-            $dataGroups.css('display','none');
-            $dataGroups.filter('.' + type).css('display', '');
+            var dataGroups = canvas.selectAll('.data');
+            dataGroups.style('display','none');
+            dataGroups.filter('.' + type).style('display', '');
           });
 
           // setup a watch on 'grouped' to switch between views
